@@ -1,0 +1,580 @@
+/*
+====================================================================
+  OLD SCHOOL FLOW BARBER SHOP - styles.css
+====================================================================
+*/
+
+/* ============================================
+   0. VARIÁVEIS DE COR (*IA*)
+   ------------------------------------------------
+   CORREÇÃO: o CSS original tinha vários comentários do tipo
+   "/* color: var(--cor-dourado); *\/" mas essas variáveis nunca
+   tinham sido criadas em lugar nenhum (--cor-dourado, --cor-creme,
+   --cor-cinza, --fonte-script não existiam) — eram só comentários
+   mortos. Agora as variáveis existem de verdade em :root e são
+   usadas no lugar de cor "cravada" (hex) espalhada pelo arquivo.
+============================================ */
+:root {
+    --cor-dourado: #d4a94f;
+    --cor-dourado-escuro: #c49a42;
+    --cor-preto: #1a1a1a;
+    --cor-texto: #2a2a2a;
+    --cor-creme: #f1e9d8;
+
+    --fonte-titulo: "Crimson Text", serif; /* usada em todos os títulos (h1-h6) */
+    --fonte-texto: "Ysabeau", sans-serif;  /* usada em todos os parágrafos */
+}
+
+* { /* Formatação Padrão */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cor-creme);
+}
+
+html {
+    scroll-behavior: smooth; /* rolagem suave ao clicar nos links do menu */
+    /*
+      CORREÇÃO IA: existia aqui "height: 500vh;" fixando a altura do
+      <html> em 5x a altura da tela, SEMPRE — não importava se o
+      conteúdo da página era menor. Isso criava um espaço vazio
+      enorme rolável no final do site. A altura do documento deve
+      ser definida pelo próprio conteúdo, então a regra foi removida.
+    */
+}
+
+/* 
+============================================
+   1. TIPOGRAFIA GLOBAL
+============================================ 
+*/
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    font-style: normal;
+    color: var(--cor-preto);
+}
+
+p {
+    color: var(--cor-texto);
+    font-size: 18px;
+    font-family: var(--fonte-texto);
+    font-optical-sizing: auto;
+    /* CORREÇÃO IA: peso 700 (bold) em TODO parágrafo do site deixava o
+       texto corrido pesado e cansativo de ler. Peso 400 (normal) é
+       o recomendado para texto de leitura; títulos continuam em
+       negrito (regra acima). */
+    font-weight: 400;
+    font-style: normal;
+}
+
+#logo { /* id = logo */
+    width: 200px;
+    height: auto;
+}
+
+.container { /* Container do Menu */
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.flex{ /* Alinhar os elementos */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribui os elementos nas extremidades*/
+}
+
+/* ============================================
+   2. CABEÇALHO
+============================================ */
+header{
+    width: 100%;
+    padding: 60px 4%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: 1s;
+}
+
+header.rolagem{ /*Estilo Aplicado na Rolagem */
+    background-color: var(--cor-preto);
+    padding: 10px 4%;
+}
+
+header.rolagem a{
+    color: var(--cor-creme);
+}
+
+header ul{ /* Manipulação da Lista */
+    list-style-type: none;
+}
+
+header ul li{ /* Itens dentro da lista */
+    display: inline-block;
+    margin: 0 40px;
+}
+
+header ul li a{
+    color: var(--cor-creme);
+    text-decoration: none;
+    font-size: 24px;
+    font-family: var(--fonte-texto);
+}
+
+header ul li a:hover{
+    font-weight: bold;
+}
+
+/* Classe adicionada dinamicamente pelo js/script.js (destaca no menu
+   a seção que está sendo vista no momento) */
+header ul li a.link-ativo {
+    color: var(--cor-dourado);
+    font-weight: bold;
+}
+
+/* ============================================
+   3. HERO / BANNER
+============================================ */
+.banner{
+    height: 100vh;
+    background-image: url('../img/barbearia-background.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+::-webkit-scrollbar{ /* Barra de scroll(Trilho)*/
+    width: 10px;
+    background: black;
+}
+
+::-webkit-scrollbar-thumb{ /* Barra de scroll(Barra)*/
+    width: 10px;
+    background-size: cover;
+    border-radius: 5px;
+    background: repeating-linear-gradient(
+            45deg,
+            var(--cor-dourado-escuro),
+            var(--cor-dourado-escuro) 20px,
+            var(--cor-creme) 20px,
+            var(--cor-creme) 40px
+    );
+}
+
+.faixa-divisora { /* Divisão da Página*/
+    height: 18px;
+    width: 100%;
+    background: repeating-linear-gradient(
+            45deg,
+            var(--cor-dourado-escuro),
+            var(--cor-dourado-escuro) 20px,
+            var(--cor-creme) 20px,
+            var(--cor-creme) 40px
+    );
+}
+
+.moldura {
+    border: 1px solid var(--cor-texto);
+    outline: 3px solid var(--cor-texto);
+    outline-offset: 8px;
+    padding: 40px;
+    max-width: 1000px;
+    display: block;
+    margin: 100px auto; /* 100px em cima/baixo, auto nas laterais = centralizado */
+}
+
+.hero__slogan{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.hero__eyebrow{
+    /* CORREÇÃO: usava a fonte "Pacifico" (script), que conflita com o
+       pedido de manter todos os parágrafos em Ysabeau. Trocada para
+       Ysabeau em itálico, mantendo o efeito de "destaque" só com cor
+       dourada, tamanho e espaçamento entre letras. */
+    color: var(--cor-dourado);
+    font-size: 22px;
+    margin-top: 30px;
+    font-family: var(--fonte-texto);
+    font-weight: 600;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero__title{
+    color: var(--cor-preto);
+    font-size: 64px;
+    margin: 5px;
+}
+
+.hero__subtitle {
+    max-width: 600px;
+    margin-top: 10px;
+}
+
+.hero__actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+/*
+======================================================
+----------------------Botões--------------------------
+======================================================
+ */
+.btn-Contato {
+    background-color: var(--cor-dourado);
+    color: var(--cor-creme);
+    border: none;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px; /* espaçamento entre as letras */
+    border-radius: 6px; /* cantos arredondados */
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* sombra sutil pra dar profundidade */
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.btn-Contato:hover {
+    background-color: var(--cor-dourado-escuro);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+}
+
+.btn-Contato:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.btn-servicos {
+    color: var(--cor-dourado);
+    font-size: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-weight: 600;
+    align-self: center;
+    outline: 4px solid var(--cor-dourado-escuro);
+    outline-offset: 10px;
+    background: transparent;
+    border: none;
+    margin-left: 24px; /* Espaçamento do botao*/
+    padding: 8px 4px;
+}
+
+.btn-servicos:hover {
+    transform: translateY(-2px);
+    background: transparent;
+    border: none;
+}
+
+.btn-servicos:active {
+    transform: translateY(-2px);
+}
+
+/* Botão genérico "outline" (novo: faltava CSS para .btn/.btn--outline,
+   usado no link do WhatsApp da seção de Localização/Contato) */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 16px;
+}
+
+.btn--outline {
+    background: transparent;
+    color: var(--cor-preto);
+    border: 2px solid var(--cor-dourado-escuro);
+}
+
+.btn--outline:hover {
+    background: var(--cor-dourado-escuro);
+    color: var(--cor-creme);
+    transform: translateY(-2px);
+}
+
+/*
+======================================================
+-------------------- Títulos de seção -----------------
+======================================================
+  (novo: .eyebrow e .title não tinham nenhum CSS)
+ */
+.eyebrow {
+    color: var(--cor-dourado-escuro);
+    font-family: var(--fonte-texto);
+    font-weight: 600;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.title {
+    font-size: 36px;
+    margin-bottom: 16px;
+}
+
+.eyebrow--center,
+.title--center {
+    text-align: center;
+}
+
+/*
+======================================================
+-------------------- Imagens -------------------------
+======================================================
+ */
+.sobre__imagem {
+    /* CORREÇÃO IA: era uma caixa fixa de 300x195px em flex, sem tamanho
+       definido para as próprias fotos — as imagens (originais enormes)
+       estouravam a caixa. Agora é um grid 2x2 com cada foto no mesmo
+       tamanho e "object-fit: cover" para preencher sem distorcer. */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.sobre__imagem img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid rgba(201,164,92,0.3);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+}
+
+.footer__logo{
+    border-radius: 50%;
+    display:block;
+    height: 70px;
+    width: 70px;
+    object-fit: cover;
+}
+
+/* ============================================
+   4. SEÇÃO SOBRE
+============================================ */
+.sobre {
+    padding: 100px 0;
+}
+
+.sobre__grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.sobre__texto p {
+    margin-bottom: 16px;
+}
+
+/* ============================================
+   5. SERVIÇOS
+============================================ */
+.servicos {
+    padding: 100px 0;
+}
+
+.servicos__grid {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.card-servico {
+    background-color: var(--cor-creme);
+    border: 1px solid rgba(201,164,92,0.2);
+    padding: 32px 24px;
+    text-align: center;
+    border-radius: 4px;
+    transition: .5s ease;
+}
+.card-servico:hover {
+    border-color: var(--cor-dourado);
+    transform: translateY(-4px);
+}
+.card-servico h3 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+.card-servico p {
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+}
+.card-servico__preco {
+    font-family: var(--fonte-titulo);
+    font-size: 1.4rem;
+    color: var(--cor-dourado-escuro);
+    font-weight: 700;
+}
+
+/* ============================================
+   6. GALERIA
+============================================ */
+.galeria {
+    padding: 100px 0;
+}
+
+.galeria__grid {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.galeria__grid img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease;
+}
+
+.galeria__grid img:hover {
+    transform: scale(1.03);
+}
+
+/* ============================================
+   7. LOCALIZAÇÃO / CONTATO (*IA*)
+============================================ */
+.localizacao {
+    padding: 100px 0;
+    background-color: rgba(26, 26, 26, 0.04);
+}
+
+.localizacao__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.localizacao__info p {
+    margin-bottom: 10px;
+}
+
+.localizacao__mapa iframe {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   8. RODAPÉ (*IA*)
+============================================ */
+.footer {
+    background-color: var(--cor-preto);
+    padding: 40px 0;
+}
+
+.footer__grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+}
+
+.footer__social {
+    display: flex;
+    gap: 24px;
+}
+
+.footer__social a {
+    color: var(--cor-creme);
+    text-decoration: none;
+    font-family: var(--fonte-texto);
+    font-size: 15px;
+}
+
+.footer__social a:hover {
+    color: var(--cor-dourado);
+}
+
+.footer__copy {
+    color: var(--cor-creme);
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+/* ============================================
+   9. RESPONSIVIDADE (CORREÇÃO IA: o arquivo original não tinha
+      NENHUMA media query)
+============================================ */
+@media (max-width: 900px) {
+    .sobre__grid,
+    .localizacao__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .servicos__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero__title {
+        font-size: 44px;
+    }
+
+    header {
+        padding: 20px 4%;
+    }
+
+    header ul li {
+        margin: 0 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    header ul li a {
+        font-size: 16px;
+    }
+
+    header ul li {
+        margin: 0 8px;
+    }
+
+    .servicos__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero__title {
+        font-size: 32px;
+    }
+
+    .btn-servicos {
+        margin-left: 0;
+    }
+}
