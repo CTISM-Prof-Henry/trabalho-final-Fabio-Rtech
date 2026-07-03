@@ -103,7 +103,7 @@ header{
 
 header.rolagem{ /*Estilo Aplicado na Rolagem */
     background-color: var(--cor-preto);
-    padding: 10px 4%;
+    padding: 9px 4%;
 }
 
 header.rolagem a{
