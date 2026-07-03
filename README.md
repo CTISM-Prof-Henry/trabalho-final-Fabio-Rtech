@@ -12,36 +12,42 @@ O projeto deve ser publicado no **GitHub Pages** e apresentado em aula para o pr
 
 ## 📌 Checklist
 
-* [ ] meu site tem pelo menos um arquivo do tipo `.html` 
-* [ ] estou usando CSS externo, em um arquivo separado `.css`
-* [ ] estou usando Javascript externo, em um arquivo separado `.js`
-* [ ] os arquivos do meu site estão na pasta `site`
-* [ ] a pasta `site` tem um arquivo `index.html`, que é a página inicial do meu site; sem esse arquivo, o GitHub Pages 
+* [x] meu site tem pelo menos um arquivo do tipo `.html` 
+* [x] estou usando CSS externo, em um arquivo separado `.css`
+* [x] estou usando Javascript externo, em um arquivo separado `.js`
+* [x] os arquivos do meu site estão na pasta `site`
+* [x] a pasta `site` tem um arquivo `index.html`, que é a página inicial do meu site; sem esse arquivo, o GitHub Pages 
       não vai funcionar
-* [ ] estou ciente que, se eu modificar ou excluir arquivos que não estejam na pasta `site` 
+* [x] estou ciente que, se eu modificar ou excluir arquivos que não estejam na pasta `site` 
       (por exemplo, `.github` ou `README.md`), isso pode afetar o funcionamento do meu site
-* [ ] respondi todas as perguntas e preenchi todos os checkboxes abaixo
-* [ ] meu site está hospedado no GitHub Pages, no link `<escreva aqui o link do seu site>`
+* [x] respondi todas as perguntas e preenchi todos os checkboxes abaixo
+* [x] meu site está hospedado no GitHub Pages, no link `https://ctism-prof-henry.github.io/trabalho-final-Fabio-Rtech/`
 
 ## 📖 Descrição do projeto
 
 Descreva abaixo **sobre o que se trata seu site:**
 
 - **Tema:**
+- O site apresenta os serviços da barbearia Old School Flow, possuí uma proposta clássica/vintage, optei por uma paleta escura com dourado e creme.
 - **Público-alvo:**
+- Publico masculino, na faixa etária de 20 a 40 anos que procura nostalgia das barbearias dos anos 2000 em diante.
 - **Funcionalidades:**
+- Navegação por âncoras, tem o menu fixo que direciona o visitante para as seções da página.
+- Lista de cortes e tratamentos oferecidos, com descrições e preços.
+- Possui galeria com algumas imagens relacionados aos serviços prestados.
+- Tem localização e formas de entrar em contato para gerar agendamento.
 
 ## Uso de IA
 
 Se você utilizou uma IA, marque a caixa abaixo e preencha os campos:
 
-* [ ] declaro que utilizei uma IA para me auxiliar na elaboração do trabalho, mas que domino os conceitos vistos em aula
+* [x] declaro que utilizei uma IA para me auxiliar na elaboração do trabalho, mas que domino os conceitos vistos em aula
   e saberei explicá-los quando indagado pelo professor.
 
 * **IA utilizada:**
 * **Forma de utilização da IA:**
-  * [ ] fiz perguntas pontuais à IA, mas eu programei o código do meu site
-  * [ ] dei um prompt para a IA, ela me deu um código e eu colei o código nos arquivos do meu site
+  * [x] fiz perguntas pontuais à IA, mas eu programei o código do meu site
+  * [x] dei um prompt para a IA, ela me deu um código e eu colei o código nos arquivos do meu site
 
 ## 🧩 Componentes HTML utilizados
 
@@ -51,29 +57,29 @@ Marque com `[x]` os elementos que **foram implementados no seu site**. Você nã
 
 #### Estrutura básica
 
-- [ ] `<!DOCTYPE html>`
-- [ ] `<html>`
-- [ ] `<head>`
-- [ ] `<title>`
-- [ ] `<body>`
+- [x] `<!DOCTYPE html>`
+- [x] `<html>`
+- [x] `<head>`
+- [x] `<title>`
+- [x] `<body>`
 
 #### Estrutura semântica
 
-- [ ] `<header>`
-- [ ] `<nav>`
-- [ ] `<main>`
-- [ ] `<section>`
-- [ ] `<article>`
+- [x] `<header>`
+- [x] `<nav>`
+- [x] `<main>`
+- [x] `<section>`
+- [x] `<article>`
 - [ ] `<aside>`
-- [ ] `<footer>`
+- [x] `<footer>`
 
 #### Conteúdo
 
-- [ ] Títulos (`h1`, `h2`, `h3`, etc.)
-- [ ] Parágrafos (`p`)
-- [ ] Imagens (`img`)
-- [ ] Links (`a`)
-- [ ] Listas:
+- [x] Títulos (`h1`, `h2`, `h3`, etc.)
+- [x] Parágrafos (`p`)
+- [x] Imagens (`img`)
+- [x] Links (`a`)
+- [x] Listas:
   - [ ] `ul`
   - [ ] `ol`
 
@@ -83,30 +89,30 @@ Marque com `[x]` os elementos que **foram implementados no seu site**. Você nã
 - [ ] `<input>`
 - [ ] `<label>`
 - [ ] `<textarea>`
-- [ ] `<button>`
+- [x] `<button>`
 
 ### 🎨 CSS
 
 - Seletor de...
-  - [ ] Classes (`.classe`)
-  - [ ] IDs (`#id`)
-  - [ ] pseudoclasse (`#a::hover`)
-- [ ] Cores
-- [ ] Tipografia (e.g. `font-family`)
-- [ ] Margem e padding
-- [ ] Layout com `flexbox`
-- [ ] Layout com `grid`
-- [ ] Responsividade (`media queries`)
-- [ ] Animações ou transições
+  - [x] Classes (`.classe`)
+  - [x] IDs (`#id`)
+  - [x] pseudoclasse (`#a::hover`)
+- [x] Cores
+- [x] Tipografia (e.g. `font-family`)
+- [x] Margem e padding
+- [x] Layout com `flexbox`
+- [x] Layout com `grid`
+- [x] Responsividade (`media queries`)
+- [x] Animações ou transições
 
 ## ⚙️ JavaScript
 
-- [ ] Manipulação do DOM
-- [ ] Eventos (`click`, `submit`, etc.)
+- [x] Manipulação do DOM
+- [x] Eventos (`click`, `submit`, etc.)
 - [ ] Validação de formulário
 - [ ] Alteração dinâmica de conteúdo
-- [ ] Uso de funções
-- [ ] Uso de arrays ou objetos
+- [x] Uso de funções
+- [x] Uso de arrays ou objetos
 - [ ] Uso de `fetch` ou API externa
 - [ ] local Storage
 
@@ -119,27 +125,28 @@ Exemplo:
 
 ```
 site/
-│
 ├── index.html
-├── pages/
-│   ├── about.html
-│   └── contact.html
-│
 ├── css/
 │   └── style.css
-│
-├── js/
-│   └── script.js
-│
-└── images/
-    ├── logo.png
-    └── banner.jpg
+└── js/
+    └── script.js
 ```
 
 ## 💡 Observações
 
 Utilize este espaço para comentar:
 
-- dificuldades encontradas
-- decisões de design
-- melhorias que podem ser feitas no futuro
+- dificuldades encontradas: A dificuldade começou em escolher sobre o que fazer o site,
+ estava completamente perdido e troquei de ideia mais de uma vez.
+ proximo ao prazo de entrega do trabalho decidi fazer o site sobre uma barbearia ficticia.
+ Tive difiuldade com o JS na parte do rodapé e em configurar alguns efeitos nos botões do site.
+- decisões de design:
+  Escolha de cores com tom pastel e escuro como preto/dourado/creme para contraste, remetendo a algo mais "Vintage".
+  Utilizei duas fontes de texto que achei interessante para a proposta do site e que são de facil visualização.
+  O menu fica fixo no topo e muda de aparencia ao rolar a página, percebi que é uma decisão de UX comum em sites para não ocupar muito espaço.
+  Com ajuda de IA, criei elementos "Old School" decorativos
+  Grid ao inves de lista simples
+- melhorias que podem ser feitas no futuro:
+  Futuramente seria interessante a utilização de um banco de dados para criar uma pagina focada no agendamento de serviços e login para ocliente.
+  Focar mais no JS e aplicar melhores animações de movimento.
+  Aplicar localStorage Para salvar o último serviço escolhido no formulário, ou um favoritar corte na galeria.
