@@ -5,14 +5,7 @@
 */
 
 /* ============================================
-   0. VARIÁVEIS DE COR (*IA*)
-   ------------------------------------------------
-   CORREÇÃO: o CSS original tinha vários comentários do tipo
-   "/* color: var(--cor-dourado); *\/" mas essas variáveis nunca
-   tinham sido criadas em lugar nenhum (--cor-dourado, --cor-creme,
-   --cor-cinza, --fonte-script não existiam) — eram só comentários
-   mortos. Agora as variáveis existem de verdade em :root e são
-   usadas no lugar de cor "cravada" (hex) espalhada pelo arquivo.
+   0. VARIÁVEIS DE COR
 ============================================ */
 :root {
     --cor-dourado: #d4a94f;
@@ -37,13 +30,6 @@ body {
 
 html {
     scroll-behavior: smooth; /* rolagem suave ao clicar nos links do menu */
-    /*
-      CORREÇÃO IA: existia aqui "height: 500vh;" fixando a altura do
-      <html> em 5x a altura da tela, SEMPRE — não importava se o
-      conteúdo da página era menor. Isso criava um espaço vazio
-      enorme rolável no final do site. A altura do documento deve
-      ser definida pelo próprio conteúdo, então a regra foi removida.
-    */
 }
 
 /* 
@@ -63,10 +49,6 @@ p {
     font-size: 18px;
     font-family: var(--fonte-texto);
     font-optical-sizing: auto;
-    /* CORREÇÃO IA: peso 700 (bold) em TODO parágrafo do site deixava o
-       texto corrido pesado e cansativo de ler. Peso 400 (normal) é
-       o recomendado para texto de leitura; títulos continuam em
-       negrito (regra acima). */
     font-weight: 400;
     font-style: normal;
 }
@@ -198,10 +180,6 @@ header ul li a.link-ativo {
 }
 
 .hero__eyebrow{
-    /* CORREÇÃO: usava a fonte "Pacifico" (script), que conflita com o
-       pedido de manter todos os parágrafos em Ysabeau. Trocada para
-       Ysabeau em itálico, mantendo o efeito de "destaque" só com cor
-       dourada, tamanho e espaçamento entre letras. */
     color: var(--cor-dourado);
     font-size: 22px;
     margin-top: 30px;
@@ -291,8 +269,6 @@ header ul li a.link-ativo {
     transform: translateY(-2px);
 }
 
-/* Botão genérico "outline" (novo: faltava CSS para .btn/.btn--outline,
-   usado no link do WhatsApp da seção de Localização/Contato) */
 .btn {
     display: inline-block;
     padding: 12px 28px;
@@ -323,7 +299,6 @@ header ul li a.link-ativo {
 ======================================================
 -------------------- Títulos de seção -----------------
 ======================================================
-  (novo: .eyebrow e .title não tinham nenhum CSS)
  */
 .eyebrow {
     color: var(--cor-dourado-escuro);
@@ -352,10 +327,6 @@ header ul li a.link-ativo {
 ======================================================
  */
 .sobre__imagem {
-    /* CORREÇÃO IA: era uma caixa fixa de 300x195px em flex, sem tamanho
-       definido para as próprias fotos — as imagens (originais enormes)
-       estouravam a caixa. Agora é um grid 2x2 com cada foto no mesmo
-       tamanho e "object-fit: cover" para preencher sem distorcer. */
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
